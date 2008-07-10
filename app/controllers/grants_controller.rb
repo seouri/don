@@ -1,0 +1,2 @@
+class GrantsController < ApplicationController
+end
