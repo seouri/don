@@ -1,0 +1,33 @@
+<p>
+  <b>Organization:</b>
+  <%=h @grant.organization_id %>
+</p>
+
+<p>
+  <b>Investigator:</b>
+  <%=h @grant.investigator_id %>
+</p>
+
+<p>
+  <b>Year:</b>
+  <%=h @grant.year %>
+</p>
+
+<p>
+  <b>Grant number:</b>
+  <%=h @grant.grant_number %>
+</p>
+
+<p>
+  <b>Project title:</b>
+  <%=h @grant.project_title %>
+</p>
+
+<p>
+  <b>Award:</b>
+  <%=h @grant.award %>
+</p>
+
+
+<%= link_to 'Edit', edit_grant_path(@grant) %> |
+<%= link_to 'Back', grants_path %>

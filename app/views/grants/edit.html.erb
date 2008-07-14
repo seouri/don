@@ -1,0 +1,36 @@
+<h1>Editing grant</h1>
+
+<% form_for(@grant) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :organization_id %><br />
+    <%= f.text_field :organization_id %>
+  </p>
+  <p>
+    <%= f.label :investigator_id %><br />
+    <%= f.text_field :investigator_id %>
+  </p>
+  <p>
+    <%= f.label :year %><br />
+    <%= f.text_field :year %>
+  </p>
+  <p>
+    <%= f.label :grant_number %><br />
+    <%= f.text_field :grant_number %>
+  </p>
+  <p>
+    <%= f.label :project_title %><br />
+    <%= f.text_field :project_title %>
+  </p>
+  <p>
+    <%= f.label :award %><br />
+    <%= f.text_field :award %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @grant %> |
+<%= link_to 'Back', grants_path %>
