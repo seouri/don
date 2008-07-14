@@ -1,16 +1,9 @@
-<p>
-  <b>Name:</b>
-  <%=h @organization.name %>
-</p>
+<h1><%= @organization.name %></h1>
 
-<p>
-  <b>City:</b>
-  <%=h @organization.city %>
-</p>
+<%=h @organization.city %>, <%=h @organization.state %>
 
-<p>
-  <b>State:</b>
-  <%=h @organization.state %>
-</p>
+<h2>Trends</h2>
 
-<%= link_to 'Back', organizations_path %>
+<h2>Grants</h2>
+
+<h2>Investigators</h2>

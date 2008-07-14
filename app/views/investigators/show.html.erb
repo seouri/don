@@ -1,7 +1,12 @@
 <h1><%=h @investigator.name %></h1>
 
-<h2>Trends</h2>
-total number, total amount
+<h2>Summary</h2>
+
+<ul>
+  <li>Years Awarded: <%= smart_year(@investigator.years) %>
+  <li>Total Awards: <%= number_to_currency(@investigator.grants.sum(:award), :precision => 0) %></li>
+  <li>Number of Grants: <%= @investigator.grants.size %></li>
+</ul>
 
 <h2>All Grants</h2>
 

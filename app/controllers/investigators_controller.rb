@@ -2,7 +2,7 @@ class InvestigatorsController < ApplicationController
   # GET /investigators
   # GET /investigators.xml
   def index
-    @investigators = Investigator.find(:all)
+    @investigators = Investigator.paginate(:page => params[:page], :per_page => 15)
 
     respond_to do |format|
       format.html # index.html.erb

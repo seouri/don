@@ -1,4 +1,4 @@
-<h1>Listing organizations</h1>
+<h1>Organizations</h1>
 
 <table>
   <tr>
@@ -9,10 +9,11 @@
 
 <% for organization in @organizations %>
   <tr>
-    <td><%=h organization.name %></td>
+    <td><%= link_to organization.name, organization %></td>
     <td><%=h organization.city %></td>
     <td><%=h organization.state %></td>
-    <td><%= link_to 'Show', organization %></td>
   </tr>
 <% end %>
 </table>
+
+<%= will_paginate @organizations %>

@@ -1,4 +1,4 @@
-<h1>Listing investigators</h1>
+<h1>Investigators</h1>
 
 <table>
   <tr>
@@ -7,8 +7,9 @@
 
 <% for investigator in @investigators %>
   <tr>
-    <td><%=h investigator.name %></td>
-    <td><%= link_to 'Show', investigator %></td>
+    <td><%= link_to investigator.name, investigator %></td>
   </tr>
 <% end %>
 </table>
+
+<%= will_paginate @organizations %>

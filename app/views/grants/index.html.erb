@@ -1,24 +1,25 @@
-<h1>Listing grants</h1>
+<h1>Grants</h1>
 
 <table>
   <tr>
     <th>Organization</th>
     <th>Investigator</th>
     <th>Year</th>
-    <th>Grant number</th>
-    <th>Project title</th>
+    <th>Grant Number</th>
+    <th>Project Title</th>
     <th>Award</th>
   </tr>
 
 <% for grant in @grants %>
   <tr>
-    <td><%=h grant.organization_id %></td>
-    <td><%=h grant.investigator_id %></td>
+    <td><%= link_to grant.organization.name, grant.organization %></td>
+    <td><%= link_to grant.investigator.name, grant.investigator %></td>
     <td><%=h grant.year %></td>
     <td><%=h grant.grant_number %></td>
     <td><%=h grant.project_title %></td>
-    <td><%=h grant.award %></td>
-    <td><%= link_to 'Show', grant %></td>
+    <td><%= number_to_currency(grant.award, :precision => 0) %></td>
   </tr>
 <% end %>
 </table>
+
+<%= will_paginate @organizations %>
