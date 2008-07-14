@@ -9,12 +9,6 @@
   <tr>
     <td><%=h investigator.name %></td>
     <td><%= link_to 'Show', investigator %></td>
-    <td><%= link_to 'Edit', edit_investigator_path(investigator) %></td>
-    <td><%= link_to 'Destroy', investigator, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New investigator', new_investigator_path %>
