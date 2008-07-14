@@ -19,12 +19,6 @@
     <td><%=h grant.project_title %></td>
     <td><%=h grant.award %></td>
     <td><%= link_to 'Show', grant %></td>
-    <td><%= link_to 'Edit', edit_grant_path(grant) %></td>
-    <td><%= link_to 'Destroy', grant, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
-
-<br />
-
-<%= link_to 'New grant', new_grant_path %>
