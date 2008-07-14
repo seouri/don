@@ -5,6 +5,9 @@ class CreateOrganizations < ActiveRecord::Migration
       t.string :city
       t.string :state
     end
+    add_index :organizations, :name
+    add_index :organizations, :city
+    add_index :organizations, :state
   end
 
   def self.down

@@ -3,6 +3,7 @@ class CreateInvestigators < ActiveRecord::Migration
     create_table :investigators do |t|
       t.string :name
     end
+    add_index :investigators, :name
   end
 
   def self.down

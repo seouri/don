@@ -12,28 +12,35 @@
 ActiveRecord::Schema.define(:version => 20080714141500) do
 
   create_table "grants", :force => true do |t|
-    t.integer  "organization_id"
-    t.integer  "investigator_id"
-    t.integer  "year"
-    t.string   "grant_number"
-    t.string   "project_title"
-    t.integer  "award"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.integer "organization_id"
+    t.integer "investigator_id"
+    t.integer "year"
+    t.string  "grant_number"
+    t.string  "project_title"
+    t.integer "award"
   end
+
+  add_index "grants", ["organization_id"], :name => "index_grants_on_organization_id"
+  add_index "grants", ["investigator_id"], :name => "index_grants_on_investigator_id"
+  add_index "grants", ["year"], :name => "index_grants_on_year"
+  add_index "grants", ["grant_number"], :name => "index_grants_on_grant_number"
+  add_index "grants", ["project_title"], :name => "index_grants_on_project_title"
+  add_index "grants", ["award"], :name => "index_grants_on_award"
 
   create_table "investigators", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "name"
   end
 
+  add_index "investigators", ["name"], :name => "index_investigators_on_name"
+
   create_table "organizations", :force => true do |t|
-    t.string   "name"
-    t.string   "city"
-    t.string   "state"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.string "name"
+    t.string "city"
+    t.string "state"
   end
+
+  add_index "organizations", ["name"], :name => "index_organizations_on_name"
+  add_index "organizations", ["city"], :name => "index_organizations_on_city"
+  add_index "organizations", ["state"], :name => "index_organizations_on_state"
 
 end
