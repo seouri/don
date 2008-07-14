@@ -1,0 +1,16 @@
+<h1>Editing investigator</h1>
+
+<% form_for(@investigator) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @investigator %> |
+<%= link_to 'Back', investigators_path %>
