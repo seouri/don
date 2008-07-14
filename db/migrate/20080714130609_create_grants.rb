@@ -7,8 +7,6 @@ class CreateGrants < ActiveRecord::Migration
       t.string :grant_number
       t.string :project_title
       t.integer :award
-
-      t.timestamps
     end
   end
 
