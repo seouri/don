@@ -10,6 +10,7 @@ module ApplicationHelper
         if index == 0
           consecutive.push(year)
         elsif index == years.size - 1
+          consecutive.push(", ") if consecutive.last == years[index - 1]
           consecutive.push(year)
         elsif year == years[index - 1] + 1 and year == years[index + 1] - 1
           consecutive.push("-") unless consecutive.last == "-"
