@@ -14,11 +14,15 @@ module ApplicationHelper
         elsif year == years[index - 1] + 1 and year == years[index + 1] - 1
           consecutive.push("-") unless consecutive.last == "-"
         elsif year == years[index - 1] + 1 and year != years[index + 1] - 1
+          consecutive.push(", ") if consecutive.last == years[index - 1]
           consecutive.push(year)
           consecutive.push(", ")
         elsif year != years[index - 1] + 1 and year == years[index + 1] - 1
           consecutive.push(year)
-        end  
+        elsif year != years[index - 1] + 1 and year != years[index + 1] - 1
+          consecutive.push(year)
+          consecutive.push(", ")
+        end
       end
       consecutive.join("")
     end
