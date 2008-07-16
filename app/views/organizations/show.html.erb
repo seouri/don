@@ -1,0 +1,39 @@
+<h1><%= @organization.name %></h1>
+
+<%=h @organization.city %>, <%=h @organization.state %>
+
+<h2>Summary</h2>
+
+<table>
+  <tr>
+    <th>Total Awards</td>
+    <th>Grants</td>
+    <th>Awarded Years</td>
+  </tr>
+  <tr>
+    <td><%= number_to_currency(@organization.award_total, :precision => 0) %></td>
+    <td><%= number_with_delimiter @organization.grants_count %></td>
+    <td><%= smart_year @organization.years %></td>
+  </tr>
+</table>
+
+<h2>Recent Grants</h2>
+
+<table>
+  <tr>
+    <th>Year</th>
+    <th>Investigator</th>
+    <th>Grant Type</th>
+    <th>Project Title</th>
+    <th>Awards</th>
+  </tr>
+<% for g in @organization.grants.recent -%>
+  <tr>
+    <td><%= g.year %></td>
+    <td><%= g.investigator ? link_to(g.investigator.name, investigator_path(g.investigator)) : "-" %></td>
+    <td><%= g.grant_type %></td>
+    <td><%= link_to g.project_title, grant_path(g) %></td>
+    <td><%= number_to_currency(g.award, :precision => 0) %></td>
+  </tr>
+<% end -%>
+</table>

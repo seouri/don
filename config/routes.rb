@@ -1,9 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :grants
-
-  map.resources :organizations
 
   map.resources :investigators
+  map.resources :organizations, :has_many => [:investigators, :grants]
+  map.resources :grants
 
   # The priority is based upon order of creation: first created -> highest priority.
 
@@ -46,4 +45,5 @@ ActionController::Routing::Routes.draw do |map|
   # consider removing the them or commenting them out if you're using named routes and resources.
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
+  map.root :controller => 'grants', :action => 'index'
 end

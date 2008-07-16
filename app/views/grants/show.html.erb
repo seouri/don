@@ -1,0 +1,21 @@
+<h1><%=h @grant.project_title %></h1>
+
+<h2>Organization</h2>
+
+<%= link_to @grant.organization.name, organization_path(@grant.organization) %>, <%= @grant.organization.city %>, <%= @grant.organization.state %>
+
+<h2>Investigator</h2>
+
+<%= link_to @grant.investigator.name, investigator_path(@grant.investigator) %>
+
+<h2>Year</h2>
+
+<%=h @grant.year %>
+
+<h2>Grant number</h2>
+
+<%=h @grant.grant_number %>
+
+<h2>Award</h2>
+
+<%= number_to_currency @grant.award, :precision => 0 %>

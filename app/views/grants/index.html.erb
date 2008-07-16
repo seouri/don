@@ -1,0 +1,27 @@
+<h1>Grants</h1>
+
+<table>
+  <tr>
+    <th>Organization</th>
+    <th>Investigator</th>
+    <th>Year</th>
+    <th>Grant Type</th>
+    <th>Project Title</th>
+    <th>Award</th>
+  </tr>
+
+<% for grant in @grants %>
+  <tr>
+    <td><%= link_to grant.organization.name, grant.organization %></td>
+    <td><%= link_to grant.investigator.name, grant.investigator %></td>
+    <td><%=h grant.year %></td>
+    <td><%=h grant.grant_type %></td>
+    <td><%= link_to grant.project_title, grant_path(grant) %></td>
+    <td><%= number_to_currency(grant.award, :precision => 0) %></td>
+  </tr>
+<% end %>
+</table>
+
+<div class="digg_pagination">
+<%= will_paginate @organizations %>
+</div>
