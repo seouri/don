@@ -4,6 +4,7 @@ class CreateInvestigators < ActiveRecord::Migration
       t.string :name
       t.integer :award_total
       t.integer :grants_count
+      t.string :awarded_years
     end
     add_index :investigators, :name
     add_index :investigators, :award_total

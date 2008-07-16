@@ -6,6 +6,7 @@ class CreateOrganizations < ActiveRecord::Migration
       t.string :state
       t.integer :award_total, :limit => 8
       t.integer :grants_count
+      t.string :awarded_years
     end
     add_index :organizations, :name
     add_index :organizations, :city

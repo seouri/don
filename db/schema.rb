@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(:version => 20080714141500) do
     t.string  "name"
     t.integer "award_total"
     t.integer "grants_count"
+    t.string  "awarded_years"
   end
 
   add_index "investigators", ["name"], :name => "index_investigators_on_name"
@@ -42,8 +43,9 @@ ActiveRecord::Schema.define(:version => 20080714141500) do
     t.string  "name"
     t.string  "city"
     t.string  "state"
-    t.integer "award_total",  :limit => 8
+    t.integer "award_total",   :limit => 8
     t.integer "grants_count"
+    t.string  "awarded_years"
   end
 
   add_index "organizations", ["name"], :name => "index_organizations_on_name"
