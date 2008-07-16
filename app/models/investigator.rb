@@ -3,7 +3,7 @@ class Investigator < ActiveRecord::Base
   has_many :organizations, :through => :grants
   
   def years
-    grants.collect(&:year).uniq.sort
+    awarded_years.split(/, /).map {|year| year.to_i}
   end
   
 end
