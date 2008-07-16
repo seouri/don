@@ -14,6 +14,7 @@ class CreateGrants < ActiveRecord::Migration
     add_index :grants, :grant_number
     add_index :grants, :project_title
     add_index :grants, :award
+    add_index :grants, [:year, :award]
   end
 
   def self.down

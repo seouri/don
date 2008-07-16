@@ -26,21 +26,30 @@ ActiveRecord::Schema.define(:version => 20080714141500) do
   add_index "grants", ["grant_number"], :name => "index_grants_on_grant_number"
   add_index "grants", ["project_title"], :name => "index_grants_on_project_title"
   add_index "grants", ["award"], :name => "index_grants_on_award"
+  add_index "grants", ["year", "award"], :name => "index_grants_on_year_and_award"
 
   create_table "investigators", :force => true do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "award_total"
+    t.integer "grants_count"
   end
 
   add_index "investigators", ["name"], :name => "index_investigators_on_name"
+  add_index "investigators", ["award_total"], :name => "index_investigators_on_award_total"
+  add_index "investigators", ["grants_count"], :name => "index_investigators_on_grants_count"
 
   create_table "organizations", :force => true do |t|
-    t.string "name"
-    t.string "city"
-    t.string "state"
+    t.string  "name"
+    t.string  "city"
+    t.string  "state"
+    t.integer "award_total",  :limit => 8
+    t.integer "grants_count"
   end
 
   add_index "organizations", ["name"], :name => "index_organizations_on_name"
   add_index "organizations", ["city"], :name => "index_organizations_on_city"
   add_index "organizations", ["state"], :name => "index_organizations_on_state"
+  add_index "organizations", ["award_total"], :name => "index_organizations_on_award_total"
+  add_index "organizations", ["grants_count"], :name => "index_organizations_on_grants_count"
 
 end

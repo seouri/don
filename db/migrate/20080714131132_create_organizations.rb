@@ -5,11 +5,13 @@ class CreateOrganizations < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.integer :award_total, :limit => 8
+      t.integer :grants_count
     end
     add_index :organizations, :name
     add_index :organizations, :city
     add_index :organizations, :state
     add_index :organizations, :award_total
+    add_index :organizations, :grants_count
   end
 
   def self.down

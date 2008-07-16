@@ -3,9 +3,11 @@ class CreateInvestigators < ActiveRecord::Migration
     create_table :investigators do |t|
       t.string :name
       t.integer :award_total
+      t.integer :grants_count
     end
     add_index :investigators, :name
     add_index :investigators, :award_total
+    add_index :investigators, :grants_count
   end
 
   def self.down
