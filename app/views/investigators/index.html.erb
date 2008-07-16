@@ -3,13 +3,20 @@
 <table>
   <tr>
     <th>Name</th>
+    <th>Award Total</th>
+    <th>Grants</th>
+    <th>Awarded Years</th>
   </tr>
 
 <% for investigator in @investigators %>
   <tr>
     <td><%= link_to investigator.name, investigator %></td>
+    <td><%= number_to_currency investigator.award_total, :precision => 0 %></td>
+    <td><%= number_with_delimiter investigator.grants_count %></td>
+    <td><%= smart_year investigator.years %></td>
   </tr>
 <% end %>
 </table>
-
+<div class="digg_pagination">
 <%= will_paginate @organizations %>
+</div>

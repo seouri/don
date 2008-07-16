@@ -5,6 +5,8 @@
     <th>Name</th>
     <th>City</th>
     <th>State</th>
+    <th>Award Total</th>
+    <th>Grants</th>
   </tr>
 
 <% for organization in @organizations %>
@@ -12,8 +14,12 @@
     <td><%= link_to organization.name, organization %></td>
     <td><%=h organization.city %></td>
     <td><%=h organization.state %></td>
+    <td><%= number_to_currency(organization.award_total, :precision => 0) %></td>
+    <td><%= number_with_delimiter organization.grants_count %></td>
   </tr>
 <% end %>
 </table>
 
+<div class="digg_pagination">
 <%= will_paginate @organizations %>
+</div>

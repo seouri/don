@@ -2,11 +2,18 @@
 
 <h2>Summary</h2>
 
-<ul>
-  <li>Years Awarded: <%= smart_year(@investigator.years) %>
-  <li>Total Awards: <%= number_to_currency(@investigator.grants.sum(:award), :precision => 0) %></li>
-  <li>Number of Grants: <%= @investigator.grants.size %></li>
-</ul>
+<table>
+  <tr>
+    <th>Total Awards</td>
+    <th>Grants</td>
+    <th>Awarded Years</td>
+  </tr>
+  <tr>
+    <td><%= number_to_currency(@investigator.award_total, :precision => 0) %></td>
+    <td><%= number_with_delimiter @investigator.grants_count %></td>
+    <td><%= smart_year @investigator.years %></td>
+  </tr>
+</table>
 
 <h2>All Grants</h2>
 
@@ -14,7 +21,7 @@
   <tr>
     <th>Year</th>
     <th>Organization</th>
-    <th>Grant Number</th>
+    <th>Grant Type</th>
     <th>Project Title</th>
     <th>Awards</th>
   </tr>
@@ -22,18 +29,16 @@
   <tr>
     <td><%= g.year %></td>
     <td><%= link_to g.organization.name, organization_path(g.organization) %></td>
-    <td><%= g.grant_number %></td>
-    <td><%= g.project_title %></td>
+    <td><%= g.grant_type %></td>
+    <td><%= link_to g.project_title, grant_path(g) %></td>
     <td><%= number_to_currency(g.award, :precision => 0) %></td>
   </tr>
 <% end -%>
   <tr>
-    <td>TOTAL</td>
-    <td></td>
-    <td></td>
-    <td></td>
-    <td><%= number_to_currency(@investigator.grants.sum(:award), :precision => 0) %></td>
+    <th>TOTAL</th>
+    <th></th>
+    <th></th>
+    <th></th>
+    <th><%= number_to_currency(@investigator.award_total, :precision => 0) %></th>
   </tr>
 </table>
-
-<%= link_to 'Back', investigators_path %>

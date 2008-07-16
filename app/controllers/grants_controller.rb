@@ -2,7 +2,7 @@ class GrantsController < ApplicationController
   # GET /grants
   # GET /grants.xml
   def index
-    @grants = Grant.paginate(:page => params[:page], :per_page => 15, :order => "grants.year desc, grants.award desc")
+    @grants = Grant.paginate(:page => params[:page], :per_page => 10, :order => "grants.year desc, grants.award desc", :include => [:investigator, :organization])
 
     respond_to do |format|
       format.html # index.html.erb

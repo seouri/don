@@ -4,20 +4,29 @@
 <head>
   <title>NIH Awards</title>
   <link rel="stylesheet" href="http://yui.yahooapis.com/2.5.1/build/reset-fonts-grids/reset-fonts-grids.css" type="text/css">
-  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.2/build/base/base-min.css"> 
+  <link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.5.2/build/base/base-min.css">
+  <%= stylesheet_link_tag "default" %>
 </head>
 <body>
-<div id="doc2" class="yui-t1">
-  <div id="hd"><h1>NIH Awards</h1></div>
+<div id="doc4" class="yui-t7">
+  <div id="hd">
+    <strong>NIH Awards</strong>:
+    <%= link_to "Grants", grants_path %> |
+    <%= link_to "Investigators", investigators_path %> |
+    <%= link_to "Organization", organizations_path %>
+
+  </div>
   <div id="bd">
-    <div id="yui-main">
-      <div class="yui-b">
-        <div class="yui-g">
-<%= yield %>
+    <div class="yui-g">
+    <% unless controller.controller_name == "grants" -%>
+        <div id="search"><% form_tag controller.send(controller.controller_name + "_path"), :method => 'get' do -%>
+          <%= text_field_tag :q, params[:q] %>
+          <%= submit_tag "Search " + controller.controller_name, :name => nil %>
+        <% end -%>
         </div>
-      </div>
+    <% end -%>
+<%= yield %>
     </div>
-    <div class="yui-b"><!-- YOUR NAVIGATION GOES HERE --></div>
   </div>
   <div id="ft">Center for Biomedical Informatics, Harvard Medical School</div>
 </div>
