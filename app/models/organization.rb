@@ -1,4 +1,5 @@
 class Organization < ActiveRecord::Base
+  has_many :grants, :order => "grants.year desc, grants.award desc"
   has_many :investigators, :through => :grants
   
   def years
