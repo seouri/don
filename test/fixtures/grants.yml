@@ -1,17 +1,11 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
+  id: 1
   organization_id: 1
   investigator_id: 1
-  year: 1
-  grant_number: MyString
-  project_title: MyString
-  award: 1
-
-two:
-  organization_id: 1
-  investigator_id: 1
-  year: 1
-  grant_number: MyString
-  project_title: MyString
+  activity_id: 1
+  year: 2008
+  grant_number: 1R01NL12345-01
+  project_title: The Greatest Project
   award: 1

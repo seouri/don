@@ -1,7 +1,8 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
-
-two:
-  name: MyString
+  id: 1
+  name: JOON LEE
+  award_total: 1
+  grants_count: 1
+  awarded_years: 2008

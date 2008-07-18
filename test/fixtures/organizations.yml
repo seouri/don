@@ -1,11 +1,10 @@
 # Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
 
 one:
-  name: MyString
-  city: MyString
-  state: MyString
-
-two:
-  name: MyString
-  city: MyString
-  state: MyString
+  id: 1
+  name: RAILS UNIV
+  city: BOSTON
+  state: MA
+  award_total: 1
+  grants_count: 1
+  awarded_years: 2008
