@@ -11,11 +11,11 @@
   </tr>
 
 <% for grant in @grants %>
-  <tr>
+  <tr class="<%= grant.activity.category_code %>" title="<%= grant.activity.category %>: <%= grant.activity.title %>">
     <td><%= link_to grant.organization.name, grant.organization %></td>
     <td><%= link_to grant.investigator.name, grant.investigator %></td>
     <td><%=h grant.year %></td>
-    <td><%=h grant.grant_type %></td>
+    <td><%=h grant.activity.code %></td>
     <td><%= link_to grant.project_title, grant_path(grant) %></td>
     <td><%= number_to_currency(grant.award, :precision => 0) %></td>
   </tr>

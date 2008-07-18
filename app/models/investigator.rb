@@ -1,6 +1,7 @@
 class Investigator < ActiveRecord::Base
   has_many :grants, :order => "grants.year desc, grants.award desc"
   has_many :organizations, :through => :grants
+  has_many :activities, :through => :grants
     
   def years
     awarded_years.split(/, /).map {|year| year.to_i}

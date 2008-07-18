@@ -3,6 +3,7 @@ class CreateGrants < ActiveRecord::Migration
     create_table :grants do |t|
       t.integer :organization_id
       t.integer :investigator_id
+      t.integer :activity_id
       t.integer :year
       t.string :grant_number
       t.string :project_title
@@ -10,6 +11,7 @@ class CreateGrants < ActiveRecord::Migration
     end
     add_index :grants, :organization_id
     add_index :grants, :investigator_id
+    add_index :grants, :activity_id
     add_index :grants, :year
     add_index :grants, :grant_number
     add_index :grants, :project_title

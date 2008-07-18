@@ -28,10 +28,10 @@
     <th>Awards</th>
   </tr>
 <% for g in @organization.grants.recent -%>
-  <tr>
+  <tr class="<%= g.activity.category_code %>" title="<%= g.activity.category %>: <%= g.activity.title %>">
     <td><%= g.year %></td>
     <td><%= g.investigator ? link_to(g.investigator.name, investigator_path(g.investigator)) : "-" %></td>
-    <td><%= g.grant_type %></td>
+    <td><%= g.activity.code %></td>
     <td><%= link_to g.project_title, grant_path(g) %></td>
     <td><%= number_to_currency(g.award, :precision => 0) %></td>
   </tr>
