@@ -11,6 +11,8 @@ class InvestigatorsController < ApplicationController
           if @organizations.size > 0
             redirect_to organizations_path(params)
           end
+        elsif @investigators.size == 1
+          redirect_to investigator_path(@investigators[0])
         end
       } # index.html.erb
       format.xml  { render :xml => @investigators }
