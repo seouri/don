@@ -37,3 +37,23 @@
   </tr>
 <% end -%>
 </table>
+
+<h2>Investigators</h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Award Total</th>
+    <th>Grants</th>
+    <th>Awarded Years</th>
+  </tr>
+
+<% for investigator in @organization.investigators %>
+  <tr>
+    <td><%= link_to investigator.name, investigator %></td>
+    <td class="currency"><%= number_to_currency investigator.award_total, :precision => 0 %></td>
+    <td><%= number_with_delimiter investigator.grants_count %></td>
+    <td><%= smart_year investigator.years %></td>
+  </tr>
+<% end %>
+</table>

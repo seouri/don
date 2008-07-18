@@ -4,14 +4,16 @@
 
 <table>
   <tr>
-    <th>Total Awards</td>
-    <th>Grants</td>
-    <th>Awarded Years</td>
+    <th>Total Awards</th>
+    <th>Grants</th>
+    <th>Awarded Years</th>
+    <th>Organizations</th>
   </tr>
   <tr>
     <td class="currency"><%= number_to_currency(@investigator.award_total, :precision => 0) %></td>
     <td><%= number_with_delimiter @investigator.grants_count %></td>
     <td><%= smart_year @investigator.years %></td>
+    <td><%= @investigator.organizations.map {|o| link_to(o.name, organization_path(o))}.join(", ")%></td>
   </tr>
 </table>
 
