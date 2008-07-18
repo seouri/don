@@ -21,7 +21,7 @@
     <% unless controller.controller_name == "grants" -%>
         <div id="search"><% form_tag controller.send(controller.controller_name + "_path"), :method => 'get' do -%>
           <%= text_field_tag :q, params[:q] %>
-          <%= submit_tag "Search " + controller.controller_name, :name => nil %>
+          <%= submit_tag "Search ", :name => nil %>
         <% end -%>
         </div>
     <% end -%>

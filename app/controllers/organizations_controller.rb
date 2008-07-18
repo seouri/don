@@ -5,7 +5,14 @@ class OrganizationsController < ApplicationController
     @organizations = Organization.search(params[:q], :page => params[:page])
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html  {
+        if @organizations.size == 0
+          @investigators = Investigator.search(params[:q], :page => params[:page])
+          if @investigators.size > 0
+            redirect_to investigators_path(params)
+          end
+        end
+      } # index.html.erb
       format.xml  { render :xml => @organizations }
     end
   end
