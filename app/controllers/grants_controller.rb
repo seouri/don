@@ -5,7 +5,11 @@ class GrantsController < ApplicationController
     @grants = Grant.paginate(:page => params[:page], :per_page => 10, :order => "grants.year desc, grants.award desc", :include => [:investigator, :organization, :activity])
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html {
+        if params.key?(:q)
+          redirect_to investigators_path(params)
+        end
+      }# index.html.erb
       format.xml  { render :xml => @grants }
     end
   end

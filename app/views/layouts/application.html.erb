@@ -18,13 +18,12 @@
   </div>
   <div id="bd">
     <div class="yui-g">
-    <% unless controller.controller_name == "grants" -%>
-        <div id="search"><% form_tag controller.send(controller.controller_name + "_path"), :method => 'get' do -%>
+      <div id="search">
+        <% form_tag controller.send(controller.controller_name + "_path"), :method => 'get' do -%>
           <%= text_field_tag :q, params[:q] %>
           <%= submit_tag "Search ", :name => nil %>
         <% end -%>
-        </div>
-    <% end -%>
+      </div>
 <%= yield %>
     </div>
   </div>
