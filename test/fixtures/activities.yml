@@ -1,0 +1,10 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  id: 1
+  code: R01
+  category: Research Projects
+  title: Reasearch Project
+  description: Cool Research Project
+  award_total: 1
+  grants_count: 1
