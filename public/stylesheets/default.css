@@ -6,6 +6,7 @@
 }
 	#hd a, #hd a:visited {
 		color: #fff;
+		text-decoration: none;
 	}
 
 #ft {
