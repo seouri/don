@@ -9,6 +9,12 @@
 		text-decoration: none;
 	}
 
+#bd a, #bd a:visited {
+	color: #000;
+}
+#bd a:hover {
+	color: #666;
+}
 #ft {
 	margin-top: 1em;
 	margin-bottom: 1em;
