@@ -1,14 +1,19 @@
 #hd {
 	margin-top: 1em;
-	border-bottom: 2px solid #333;
-	font-weight: bold;
+	padding: 0.25em;
+	color: #fff;
+	background-color: #333;
 }
+	#hd a, #hd a:visited {
+		color: #fff;
+	}
 
 #ft {
 	margin-top: 1em;
 	margin-bottom: 1em;
-	border-top: 2px solid #333;
-	font-weight: bold;
+	padding: 0.25em;
+	color: #fff;
+	background-color: #333;
 }
 
 th {
