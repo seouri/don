@@ -14,7 +14,7 @@
     <td><%= link_to organization.name, organization %></td>
     <td><%=h organization.city %></td>
     <td><%=h organization.state %></td>
-    <td><%= number_to_currency(organization.award_total, :precision => 0) %></td>
+    <td class="currency"><%= number_to_currency(organization.award_total, :precision => 0) %></td>
     <td><%= number_with_delimiter organization.grants_count %></td>
   </tr>
 <% end %>

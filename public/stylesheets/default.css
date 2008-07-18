@@ -23,9 +23,14 @@ th {
 	border-top: 2px solid #000;
 	border-bottom: 2px solid #000;
 }
+
 #search {
 	padding: 0.25em;
 	float: right;
+}
+
+.currency {
+	text-align: right;
 }
 
 .pagination {

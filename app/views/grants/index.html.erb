@@ -17,7 +17,7 @@
     <td><%=h grant.year %></td>
     <td><%=h grant.activity.code %></td>
     <td><%= link_to grant.project_title, grant_path(grant) %></td>
-    <td><%= number_to_currency(grant.award, :precision => 0) %></td>
+    <td class="currency"><%= number_to_currency(grant.award, :precision => 0) %></td>
   </tr>
 <% end %>
 </table>

@@ -9,7 +9,7 @@
     <th>Awarded Years</td>
   </tr>
   <tr>
-    <td><%= number_to_currency(@investigator.award_total, :precision => 0) %></td>
+    <td class="currency"><%= number_to_currency(@investigator.award_total, :precision => 0) %></td>
     <td><%= number_with_delimiter @investigator.grants_count %></td>
     <td><%= smart_year @investigator.years %></td>
   </tr>
@@ -31,7 +31,7 @@
     <td><%= link_to g.organization.name, organization_path(g.organization) %></td>
     <td><%= g.activity.code %></td>
     <td><%= link_to g.project_title, grant_path(g) %></td>
-    <td><%= number_to_currency(g.award, :precision => 0) %></td>
+    <td class="currency"><%= number_to_currency(g.award, :precision => 0) %></td>
   </tr>
 <% end -%>
   <tr>
