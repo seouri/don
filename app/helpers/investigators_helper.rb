@@ -30,4 +30,17 @@ module InvestigatorsHelper
     url = Gchart.pie(:data => awards, :labels => codes, :size => '150x80')
     image_tag(url)
   end
+
+  def grant_by_category(grants)
+    html = []
+    stat = grants.group_by {|g| g.activity.category}
+    categories = stat.keys.sort
+    awards = []
+    categories.each do |category|
+      award = stat[category].sum {|g| g.award}
+      awards.push(award)
+    end
+    url = Gchart.pie(:data => awards, :labels => categories, :size => '350x80')
+    image_tag(url)
+  end
 end
