@@ -21,6 +21,7 @@
 	padding: 0.25em 0.5em;
 	color: #fff;
 	background-color: #333;
+	text-align: right;
 }
 
 th {
@@ -29,9 +30,19 @@ th {
 }
 
 #search {
-	padding: 0.25em;
 	float: right;
 }
+	#search input[type="text"] {
+		border: 3px solid #999;
+		color: #666;
+		font-size:138.5%;
+	}
+	#search input[type="submit"] {
+		background-color: #999;
+		color: #fff;
+		padding: 0 0.25em;
+		font-size:138.5%;
+	}
 
 .currency {
 	text-align: right;
