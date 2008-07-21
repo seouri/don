@@ -1,8 +1,10 @@
 class InvestigatorsController < ApplicationController
+  before_filter :find_organization
+
   # GET /investigators
   # GET /investigators.xml
   def index
-    @investigators = Investigator.search(params[:q], :page => params[:page])
+    @investigators = (@organization ? @organization.investigators : Investigator).search(params[:q], :page => params[:page])
 
     respond_to do |format|
       format.html {
@@ -30,4 +32,8 @@ class InvestigatorsController < ApplicationController
     end
   end
 
+protected
+  def find_organization
+    @organization = Organization.find(params[:organization_id]) if params[:organization_id]
+  end
 end

@@ -1,8 +1,10 @@
 class GrantsController < ApplicationController
+  before_filter :find_organization
+
   # GET /grants
   # GET /grants.xml
   def index
-    @grants = Grant.paginate(:page => params[:page], :per_page => 10, :order => "grants.year desc, grants.award desc", :include => [:investigator, :organization, :activity])
+    @grants = (@organization ? @organization.grants : Grant).paginate(:page => params[:page], :per_page => 10, :order => "grants.year desc, grants.award desc", :include => [:investigator, :organization, :activity])
 
     respond_to do |format|
       format.html {
@@ -24,5 +26,9 @@ class GrantsController < ApplicationController
       format.xml  { render :xml => @grant }
     end
   end
-
+  
+protected
+  def find_organization
+    @organization = Organization.find(params[:organization_id]) if params[:organization_id]
+  end
 end

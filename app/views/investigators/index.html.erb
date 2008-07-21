@@ -1,4 +1,4 @@
-<h1>Investigators</h1>
+<h1>Investigators<%= " at " + link_to(@organization.name, organization_path(@organization)) if @organization %></h1>
 
 <table>
   <tr>

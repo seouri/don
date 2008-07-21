@@ -1,8 +1,8 @@
-<h1>Grants</h1>
+<h1>Grants<%= " at " + link_to(@organization.name, organization_path(@organization)) if @organization %></h1>
 
 <table>
   <tr>
-    <th>Organization</th>
+    <%= "<th>Organization</th>" unless @organization %>
     <th>Investigator</th>
     <th>Year</th>
     <th>Grant Type</th>
@@ -12,7 +12,7 @@
 
 <% for grant in @grants %>
   <tr class="<%= grant.activity.category_code %>" title="<%= grant.activity.category %>: <%= grant.activity.title %>">
-    <td><%= link_to grant.organization.name, grant.organization %></td>
+    <%= "<td>" + link_to(grant.organization.name, grant.organization) + "</td>" unless @organization %>
     <td><%= link_to grant.investigator.name, grant.investigator %></td>
     <td><%=h grant.year %></td>
     <td><%=h grant.activity.code %></td>
@@ -22,6 +22,6 @@
 <% end %>
 </table>
 
-<div class="digg_pagination">
+<div class="pagination">
 <%= will_paginate @organizations %>
 </div>

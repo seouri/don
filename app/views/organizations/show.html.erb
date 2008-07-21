@@ -37,8 +37,9 @@
   </tr>
 <% end -%>
 </table>
+<%= link_to "[All grants]", organization_grants_path(@organization) %>
 
-<h2>Investigators</h2>
+<h2>Top Investigators</h2>
 
 <table>
   <tr>
@@ -57,3 +58,4 @@
   </tr>
 <% end %>
 </table>
+<%= link_to "[All investigators]", organization_investigators_path(@organization) %>
