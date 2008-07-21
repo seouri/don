@@ -27,7 +27,7 @@ module InvestigatorsHelper
       award = stat[code].sum {|g| g.award}
       awards.push(award)
     end
-    url = Gchart.pie(:data => awards, :labels => codes, :size => '150x80')
+    url = Gchart.pie(:data => awards, :labels => codes, :size => '150x80', :custom => 'chco=999999')
     image_tag(url)
   end
 
@@ -46,7 +46,7 @@ module InvestigatorsHelper
     categories.map! {|c| c.sub(/and/, "%26")}
     categories.map! {|c| c.sub(/Development/, "Dev")}
     width = 86 + categories.max {|a, b| a.length <=> b.length }.length * 6 * 2
-    url = Gchart.pie(:data => awards, :labels => categories, :size => "#{width}x80")
+    url = Gchart.pie(:data => awards, :labels => categories, :size => "#{width}x80", :custom => 'chco=999999')
     image_tag(url)
   end
 end
