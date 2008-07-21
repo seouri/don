@@ -4,7 +4,7 @@ class InvestigatorsController < ApplicationController
   # GET /investigators
   # GET /investigators.xml
   def index
-    @investigators = (@organization ? @organization.investigators : Investigator).search(params[:q], :page => params[:page])
+    @investigators = (@organization ? @organization.investigators : Investigator).search(params[:q], :page => params[:page], :total_entries => @total_entries)
 
     respond_to do |format|
       format.html {
@@ -34,6 +34,9 @@ class InvestigatorsController < ApplicationController
 
 protected
   def find_organization
-    @organization = Organization.find(params[:organization_id]) if params[:organization_id]
+    if params[:organization_id]
+      @organization = Organization.find(params[:organization_id])
+      @total_entries = @organization.investigators_count
+    end
   end
 end

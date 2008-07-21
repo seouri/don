@@ -59,9 +59,10 @@ ActiveRecord::Schema.define(:version => 20080717142107) do
     t.string  "name"
     t.string  "city"
     t.string  "state"
-    t.integer "award_total",   :limit => 8
+    t.integer "award_total",         :limit => 8
     t.integer "grants_count"
     t.string  "awarded_years"
+    t.integer "investigators_count"
   end
 
   add_index "organizations", ["name"], :name => "index_organizations_on_name"
