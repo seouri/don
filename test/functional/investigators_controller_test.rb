@@ -8,7 +8,7 @@ class InvestigatorsControllerTest < ActionController::TestCase
   end
 
   test "should show investigator" do
-    get :show, :id => investigators(:one).id
+    get :show, :id => investigators(:investigators_1).id
     assert_response :success
   end
 end

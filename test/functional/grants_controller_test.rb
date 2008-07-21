@@ -8,7 +8,7 @@ class GrantsControllerTest < ActionController::TestCase
   end
 
   test "should show grant" do
-    get :show, :id => grants(:one).id
+    get :show, :id => grants(:grants_1).id
     assert_response :success
   end
 

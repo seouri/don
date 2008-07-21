@@ -8,7 +8,7 @@ class OrganizationsControllerTest < ActionController::TestCase
   end
 
   test "should show organization" do
-    get :show, :id => organizations(:one).id
+    get :show, :id => organizations(:organizations_1).id
     assert_response :success
   end
 end
