@@ -13,8 +13,8 @@
   </tr>
   <tr>
     <td class="currency"><%= number_to_currency(@organization.award_total, :precision => 0) %></td>
-    <td class="currency"><%= number_with_delimiter @organization.grants_count %></td>
-    <td class="currency"><%= number_with_delimiter @organization.investigators_count %></td>
+    <td class="currency"><%= link_to number_with_delimiter(@organization.grants_count), organization_grants_path(@organization) %></td>
+    <td class="currency"><%= link_to number_with_delimiter(@organization.investigators_count), organization_investigators_path(@organization) %></td>
     <td><%= smart_year @organization.years %></td>
   </tr>
 </table>

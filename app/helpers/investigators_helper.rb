@@ -41,7 +41,7 @@ module InvestigatorsHelper
       award = stat[category].sum {|g| g.award}
       awards.push(award)
     end
-    width = 80 + categories.max {|a, b| a.length <=> b.length }.length * 6 * 2
+    width = 84 + categories.max {|a, b| a.length <=> b.length }.length * 6 * 2
     url = Gchart.pie(:data => awards, :labels => categories, :size => "#{width}x80", :custom => 'chco=999999')
     image_tag(url)
   end
