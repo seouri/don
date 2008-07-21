@@ -12,9 +12,10 @@ module InvestigatorsHelper
       awards.push(award)
       grants.push(grant)
     end
-    width = 80 + years.size * 28
+    width = 80 + years.size * 16
     max_award = number_to_currency(awards.sort.last, :precision => 0)
-    url = Gchart.bar(:data => awards, :axis_with_labels => 'x,y', :axis_labels => [years, [0, max_award]], :size => "#{width}x80", :bar_colors => '999999')
+    label = years.map {|y| years.index(y) % 2 == 1 ? "" : y }
+    url = Gchart.bar(:data => awards, :axis_with_labels => 'x,y', :axis_labels => [label, [0, max_award]], :size => "#{width}x80", :bar_colors => '999999', :bar_width_and_spacing => '10,6')
     image_tag(url)
   end
 
@@ -40,12 +41,7 @@ module InvestigatorsHelper
       award = stat[category].sum {|g| g.award}
       awards.push(award)
     end
-    categories.map! {|c| c.sub(/Program/, "Prgrm")}
-    categories.map! {|c| c.sub(/Project/, "Prjct")}
-    categories.map! {|c| c.sub(/Center/, "Cntr")}
-    categories.map! {|c| c.sub(/and/, "%26")}
-    categories.map! {|c| c.sub(/Development/, "Dev")}
-    width = 86 + categories.max {|a, b| a.length <=> b.length }.length * 6 * 2
+    width = 80 + categories.max {|a, b| a.length <=> b.length }.length * 6 * 2
     url = Gchart.pie(:data => awards, :labels => categories, :size => "#{width}x80", :custom => 'chco=999999')
     image_tag(url)
   end
