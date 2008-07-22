@@ -3,10 +3,14 @@
 	padding: 0.25em 0.5em;
 	color: #fff;
 	background-color: #333;
+	font-size:123.1%;
 }
 	#hd a, #hd a:visited {
 		color: #fff;
 		text-decoration: none;
+	}
+	#hd a:hover {
+		color:#ddd;
 	}
 
 #bd a, #bd a:visited {
@@ -31,17 +35,20 @@ th {
 
 #search {
 	float: right;
+	display: block;
+	margin: 0;
+	padding: 0;
 }
 	#search input[type="text"] {
 		border: 3px solid #999;
 		color: #666;
-		font-size:138.5%;
+		font-size:85%;
 	}
 	#search input[type="submit"] {
 		background-color: #999;
 		color: #fff;
 		padding: 0 0.25em;
-		font-size:138.5%;
+		font-size:85%;
 	}
 
 .currency {

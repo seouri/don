@@ -10,6 +10,12 @@
 <body>
 <div id="doc4" class="yui-t7">
   <div id="hd">
+    <div id="search">
+      <% form_tag controller.send(controller.controller_name + "_path"), :method => 'get' do -%>
+        <%= text_field_tag :q, params[:q] %>
+        <%= submit_tag "search ", :name => nil %>
+      <% end -%>
+    </div>
     NIH Awards:
     <%= link_to "Grants", grants_path %> |
     <%= link_to "Investigators", investigators_path %> |
@@ -18,12 +24,7 @@
   </div>
   <div id="bd">
     <div class="yui-g">
-      <div id="search">
-        <% form_tag controller.send(controller.controller_name + "_path"), :method => 'get' do -%>
-          <%= text_field_tag :q, params[:q] %>
-          <%= submit_tag "search ", :name => nil %>
-        <% end -%>
-      </div>
+
 <%= yield %>
     </div>
   </div>
