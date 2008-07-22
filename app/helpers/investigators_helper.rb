@@ -1,6 +1,5 @@
 module InvestigatorsHelper
   def grant_by_year(grants)
-    html = []
     stat = grants.group_by {|g| g.year }
     y = stat.keys.sort
     years = (y.first .. y.last).to_a
@@ -20,7 +19,6 @@ module InvestigatorsHelper
   end
 
   def grant_by_activity(grants)
-    html = []
     stat = grants.group_by {|g| g.activity.code }
     codes = stat.keys.sort
     awards = []
@@ -33,7 +31,6 @@ module InvestigatorsHelper
   end
 
   def grant_by_category(grants)
-    html = []
     stat = grants.group_by {|g| g.activity.category}
     categories = stat.keys.sort
     awards = []
