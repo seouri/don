@@ -53,6 +53,7 @@ th {
 
 .currency {
 	text-align: right;
+	white-space: nowrap;
 }
 
 .pagination {
