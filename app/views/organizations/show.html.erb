@@ -18,6 +18,8 @@
     <td><%= smart_year @organization.years %></td>
   </tr>
 </table>
+<%= award_chart(@organization.awards_by_year) %>
+<%= category_chart(@organization.categories) %>
 
 <h2>Recent Grants</h2>
 
