@@ -16,7 +16,7 @@ module InvestigatorsHelper
     max_award = number_to_currency(awards.sort.last, :precision => 0)
     label = years.map {|y| years.index(y) % 2 == 1 ? "" : y }
     url = Gchart.bar(:data => awards, :axis_with_labels => 'x,y', :axis_labels => [label, [0, max_award]], :size => "#{width}x80", :bar_colors => '999999', :bar_width_and_spacing => '10,6')
-    image_tag(url)
+    image_tag(url, :alt => "Awards by Year")
   end
 
   def grant_by_activity(grants)
@@ -29,7 +29,7 @@ module InvestigatorsHelper
       awards.push(award)
     end
     url = Gchart.pie(:data => awards, :labels => codes, :size => '150x80', :custom => 'chco=999999')
-    image_tag(url)
+    image_tag(url, :alt => "Awards by Activity")
   end
 
   def grant_by_category(grants)
@@ -43,6 +43,6 @@ module InvestigatorsHelper
     end
     width = 84 + categories.max {|a, b| a.length <=> b.length }.length * 6 * 2
     url = Gchart.pie(:data => awards, :labels => categories, :size => "#{width}x80", :custom => 'chco=999999')
-    image_tag(url)
+    image_tag(url, :alt => "Awards by Category")
   end
 end
