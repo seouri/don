@@ -8,6 +8,7 @@
     <th>Award Total</th>
     <th>Grants</th>
     <th>Investigators</th>
+    <th>Awarded Years</th>
   </tr>
 
 <% for organization in @organizations %>
@@ -15,9 +16,10 @@
     <td><%= link_to organization.name, organization %></td>
     <td><%=h organization.city %></td>
     <td><%=h organization.state %></td>
-    <td class="currency"><%= number_to_currency(organization.award_total, :precision => 0) %></td>
+    <td class="currency"><%= number_to_human_currency(organization.award_total) %></td>
     <td class="currency"><%= number_with_delimiter organization.grants_count %></td>
     <td class="currency"><%= number_with_delimiter organization.investigators_count %></td>
+    <td><%= smart_year organization.years %></td>
   </tr>
 <% end %>
 </table>

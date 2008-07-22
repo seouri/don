@@ -10,7 +10,7 @@
     <th>Organizations</th>
   </tr>
   <tr>
-    <td class="currency"><%= number_to_currency(@investigator.award_total, :precision => 0) %></td>
+    <td class="currency"><%= number_to_human_currency @investigator.award_total %></td>
     <td class="currency"><%= number_with_delimiter @investigator.grants_count %></td>
     <td><%= smart_year @investigator.years %></td>
     <td><%= @investigator.organizations.map {|o| link_to(o.name, organization_path(o))}.join(", ")%></td>
@@ -36,14 +36,7 @@
     <td><%= link_to g.organization.name, organization_path(g.organization) %></td>
     <td><%= g.activity.code %></td>
     <td><%= link_to g.project_title, grant_path(g) %></td>
-    <td class="currency"><%= number_to_currency(g.award, :precision => 0) %></td>
+    <td class="currency"><%= number_to_human_currency g.award %></td>
   </tr>
 <% end -%>
-  <tr>
-    <th>TOTAL</th>
-    <th></th>
-    <th></th>
-    <th></th>
-    <th><%= number_to_currency(@investigator.award_total, :precision => 0) %></th>
-  </tr>
 </table>
