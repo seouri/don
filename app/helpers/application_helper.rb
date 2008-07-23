@@ -33,7 +33,7 @@ module ApplicationHelper
   end
 
   def number_to_human_currency(number)
-    digits = Math.log10(number)
+    digits = number <= 0 ? 0 : Math.log10(number.to_i)
     case
       when digits < 3; "$#{number}"
       when digits < 6; "$%.1f K" % (number.to_f / 10 ** 3)
