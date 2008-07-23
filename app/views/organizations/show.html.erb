@@ -19,7 +19,7 @@
   </tr>
 </table>
 <%= award_chart(@organization.awards_by_year) %>
-<%= category_chart(@organization.categories) %>
+<%= category_chart(Activity.categories(@organization)) %>
 
 <h2>Recent Grants</h2>
 
