@@ -1,6 +1,11 @@
 # Methods added to this helper will be available to all templates in the application.
 module ApplicationHelper
 
+  def grant_legend(grants)
+    categories = grants.map { |g| g.activity}.sort {|a,b| a.category <=> b.category }.map {|a| content_tag(:td, a.category, :class => a.category_code)}.uniq
+    content_tag(:table, content_tag(:tr, categories.join("")), :class => "legend")
+  end
+
   def smart_year(years)
     if years.size < 3
       return years.join(", ")

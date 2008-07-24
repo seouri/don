@@ -101,6 +101,16 @@ th {
   *:first-child+html .pagination {
     overflow: hidden; }
 
+table.grants {
+  width: 100%;
+}
+
+.legend {
+  float: right;
+  font-size: 77%;
+  margin-top: -4.5em;
+}
+
 .C {}
 .D {}
 .F {

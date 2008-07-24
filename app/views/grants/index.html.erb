@@ -1,6 +1,7 @@
 <h1>Grants<%= " at " + link_to(@organization.name, organization_path(@organization)) if @organization %></h1>
 
-<table>
+<%= grant_legend(@grants) %>
+<table class="grants">
   <tr>
     <%= "<th>Organization</th>" unless @organization %>
     <th>Investigator</th>
