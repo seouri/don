@@ -1,8 +1,10 @@
 class OrganizationsController < ApplicationController
+  before_filter :total_entries
+  
   # GET /organizations
   # GET /organizations.xml
   def index
-    @organizations = Organization.search(params[:q], :page => params[:page])
+    @organizations = Organization.search(params[:q], :page => params[:page], :total_entries => @total_entries)
 
     respond_to do |format|
       format.html  {
@@ -29,5 +31,8 @@ class OrganizationsController < ApplicationController
       format.xml  { render :xml => @organization }
     end
   end
-
+protected
+  def total_entries
+    @total_entries = Organization.last.id
+  end
 end

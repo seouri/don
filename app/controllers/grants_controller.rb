@@ -4,7 +4,7 @@ class GrantsController < ApplicationController
   # GET /grants
   # GET /grants.xml
   def index
-    @grants = (@organization ? @organization.grants : Grant).paginate(:page => params[:page], :per_page => 10, :order => "grants.year desc, grants.award desc", :include => [:investigator, :organization, :activity])
+    @grants = (@organization ? @organization.grants : Grant).paginate(:page => params[:page], :per_page => 10, :order => "grants.year desc, grants.award desc", :include => [:investigator, :organization, :activity], :total_entries => @total_entries)
 
     respond_to do |format|
       format.html {
@@ -29,6 +29,10 @@ class GrantsController < ApplicationController
   
 protected
   def find_organization
-    @organization = Organization.find(params[:organization_id]) if params[:organization_id]
+    @total_entries = Grant.last.id
+    if params[:organization_id]
+      @organization = Organization.find(params[:organization_id])
+      @total_entries = @organization.grants_count
+    end
   end
 end
