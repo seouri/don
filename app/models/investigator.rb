@@ -1,5 +1,5 @@
 class Investigator < ActiveRecord::Base
-  has_many :grants, :order => "grants.year desc, grants.award desc"
+  has_many :grants, :order => "grants.year desc, grants.award desc", :include => [:activity, :organization]
   has_many :organizations, :through => :grants, :uniq => true
   has_many :activities, :through => :grants, :uniq => true
     
