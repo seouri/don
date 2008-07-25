@@ -6,7 +6,7 @@ class Investigator < ActiveRecord::Base
   def years
     awarded_years.split(/, /).map {|year| year.to_i}
   end
-  
+
   def self.search(query, options = {})
     options[:conditions] ||= ["#{Investigator.table_name}.name LIKE ?", "#{query}%"] unless query.blank?
     options[:order] ||= "#{Investigator.table_name}.award_total desc"
