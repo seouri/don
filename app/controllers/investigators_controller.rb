@@ -34,7 +34,6 @@ class InvestigatorsController < ApplicationController
 
 protected
   def find_organization
-    @total_entries = Investigator.last.id
     if params[:organization_id]
       @organization = Organization.find(params[:organization_id])
       @total_entries = @organization.investigators_count

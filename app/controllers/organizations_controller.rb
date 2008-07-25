@@ -1,10 +1,8 @@
 class OrganizationsController < ApplicationController
-  before_filter :total_entries
-  
   # GET /organizations
   # GET /organizations.xml
   def index
-    @organizations = Organization.search(params[:q], :page => params[:page], :total_entries => @total_entries)
+    @organizations = Organization.search(params[:q], :page => params[:page])
 
     respond_to do |format|
       format.html  {

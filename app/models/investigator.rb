@@ -12,6 +12,7 @@ class Investigator < ActiveRecord::Base
     options[:order] ||= "#{Investigator.table_name}.award_total desc"
     options[:per_page] ||= 10
     options[:page] ||= 1
+    options[:total_entries] ||= Investigator.last.id if query.blank?
     paginate options
   end
 end

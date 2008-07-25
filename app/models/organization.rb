@@ -12,6 +12,7 @@ class Organization < ActiveRecord::Base
     options[:order] ||= "#{Organization.table_name}.award_total desc"
     options[:per_page] ||= 10
     options[:page] ||= 1
+    options[:total_entries] ||= Organization.last.id if query.blank?
     paginate options
   end
 end
