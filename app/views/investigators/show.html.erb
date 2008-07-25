@@ -19,7 +19,7 @@
 
 <%= grant_by_year(@investigator.grants) %>
 <%= grant_by_category(@investigator.grants) %>
-
+<%= organization_chart(@investigator.grants) if @investigator.organizations.size > 1 %>
 <h2>All Grants</h2>
 
 <%= grant_legend(@investigator.grants) %>
