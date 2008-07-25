@@ -13,7 +13,7 @@ module InvestigatorsHelper
     end
     width = 60 + years.size * 14
     max_award = number_to_human_currency(awards.sort.last)
-    label = years.map {|y| years.index(y) % 2 == 1 ? "" : y }
+    label = years.map {|y| years.index(y) % 2 == 1 ? " " : y }
     url = Gchart.bar(:data => awards, :axis_with_labels => 'x,y', :axis_labels => [label, [0, max_award]], :size => "#{width}x80", :bar_colors => '999999', :bar_width_and_spacing => '8,6')
     image_tag(url, :alt => "Awards by Year")
   end
