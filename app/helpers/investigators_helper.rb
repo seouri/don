@@ -45,7 +45,7 @@ module InvestigatorsHelper
   
   def organization_chart(grants)
     year = grants.map {|g| g.year}.uniq.sort
-    year_min = year.min - 1
+    year_min = year.min - 0
     stat = grants.group_by {|g| g.organization.name }
     organization = stat.keys.sort {|a,b| stat[a].map {|k| k.year}.min <=> stat[b].map {|l| l.year}.min }
     x = []
@@ -66,7 +66,7 @@ module InvestigatorsHelper
     y.map! {|a| a.to_f * factor} if x.max < y.max
     years = (year.first .. year.last).to_a
     x_label = years.map {|i| years.index(i) % 2 == 1 ? " " : i }
-    x_label.unshift(" ")
+    #x_label.unshift(" ")
     y_label = organization.map {|o| o.titleize }
     y_label.unshift(" ")
     width = organization.sort {|a,b| a.length <=> b.length}.max.length * 8 + year.size * 14 
