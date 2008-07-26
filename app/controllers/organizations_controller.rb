@@ -11,7 +11,7 @@ class OrganizationsController < ApplicationController
           if @investigators.size > 0
             redirect_to investigators_path(params)
           end
-        elsif @organizations.size == 1
+        elsif params.key?(:q) and @organizations.size == 1
           redirect_to organization_path(@organizations[0])
         end
       } # index.html.erb
