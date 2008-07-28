@@ -40,14 +40,16 @@ module ApplicationHelper
   def number_to_human_currency(number)
     digits = number <= 0 ? 0 : Math.log10(number.to_i).to_i
     sig = ("%.1f" % (number.to_f / 10 ** digits)).to_f
-    human = ""
+    diff = digits - (digits / 3 * 3)
+    human = sig * 10 ** diff
+    human = diff == 0 ? sprintf("%.1f", human) : sprintf("%d", human) 
     case
       when digits < 3;  human = "$#{number}"
-      when digits < 6;  human = "$%.3s K" % (sig * 10 ** (digits - 3))
-      when digits < 9;  human = "$%.3s M" % (sig * 10 ** (digits - 6))
-      when digits < 12; human = "$%.3s B" % (sig * 10 ** (digits - 9))
+      when digits < 6;  human = "$%.3s K" % human
+      when digits < 9;  human = "$%.3s M" % human
+      when digits < 12; human = "$%.3s B" % human
+      when digits < 15; human = "$%.3s T" % human
       else human = "$#{number}"
     end
-    human.gsub(/\. /, " ")
   end
 end
