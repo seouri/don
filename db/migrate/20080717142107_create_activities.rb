@@ -2,11 +2,11 @@ class CreateActivities < ActiveRecord::Migration
   def self.up
     create_table :activities do |t|
       t.string :code, :limit => 3
-      t.string :category
-      t.string :title
+      t.string :category, :limit => 64
+      t.string :title, :limit => 128
       t.text :description
       t.integer :award_total, :limit => 8
-      t.integer :grants_count
+      t.integer :grants_count, :limit => 3
     end
     add_index :activities, :code, :unique => true
     add_index :activities, :category

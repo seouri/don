@@ -54,7 +54,7 @@
     <th>Awarded Years</th>
   </tr>
 
-<% for investigator in @organization.investigators %>
+<% for investigator in @organization.investigators.top_awards %>
   <tr>
     <td><%= link_to investigator.name, investigator %></td>
     <td class="currency"><%= number_to_human_currency investigator.award_total %></td>

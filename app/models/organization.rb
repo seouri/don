@@ -1,7 +1,7 @@
 class Organization < ActiveRecord::Base
-  has_many :grants, :order => "grants.year desc, grants.award desc", :include => :activity
-  has_many :awards_by_year, :class_name => "Grant", :order => "year", :group => :year, :select => "year, sum(award) as awards, count(*) as grants"
-  has_many :investigators, :through => :grants, :uniq => true, :order => "investigators.award_total desc", :limit => 10
+  has_many :grants, :include => :activity
+  has_many :awards_by_year, :class_name => "Grant", :group => :year, :select => "year, sum(award) as awards, count(*) as grants"
+  has_many :investigators, :through => :grants, :uniq => true
   
   def years
     awarded_years.split(/, /).map {|year| year.to_i}

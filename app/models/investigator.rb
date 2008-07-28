@@ -3,6 +3,8 @@ class Investigator < ActiveRecord::Base
   has_many :organizations, :through => :grants, :uniq => true
   has_many :activities, :through => :grants, :uniq => true
     
+  named_scope :top_awards, :order => "award_total desc", :limit => 10
+  
   def years
     awarded_years.split(/, /).map {|year| year.to_i}
   end
