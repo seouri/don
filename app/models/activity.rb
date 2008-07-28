@@ -2,7 +2,7 @@ class Activity < ActiveRecord::Base
   has_many :organizations, :through => :grants
   
   def self.categories(organization)
-    activity_ids = find_by_sql "select activity_id, sum(award) as awards from grants where organization_id = #{organization.id} group by activity_id order by sum(award) desc;"
+    activity_ids = find_by_sql "select activity_id, sum(award) as awards from grants where organization_id = #{organization.id} and activity_id > 0 group by activity_id order by sum(award) desc;"
     activities = find activity_ids.map {|a| a.activity_id}
     categories = {}
     activities.each do |a|
