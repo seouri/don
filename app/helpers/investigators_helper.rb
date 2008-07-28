@@ -48,6 +48,7 @@ module InvestigatorsHelper
     year_min = year.min
     stat = grants.group_by {|g| g.organization.name }
     organization = stat.keys.sort {|a,b| stat[a].map {|k| k.year}.min <=> stat[b].map {|l| l.year}.min }
+    award = organization.map {|o| number_to_human_currency(stat[o].sum {|k| k.award})}
     x = []
     y = []
     y_value = 0
@@ -55,7 +56,6 @@ module InvestigatorsHelper
       y_value += 4
       years = stat[o].map {|k| k.year}.uniq
       years.each do |i|
-        award = stat[o].map {|k| k.award.to_i}.sum
         x.push(i - year_min)
         y.push(y_value.to_i)
       end
@@ -66,9 +66,9 @@ module InvestigatorsHelper
     y.map! {|a| a.to_f * factor} if x.max < y.max
     years = (year.first .. year.last).to_a
     x_label = years.map {|i| years.index(i) % 2 == 1 ? " " : i }
-    y_label = organization.map {|o| o.titleize }
+    y_label = organization.map {|o| o.titleize.gsub(/&/, "%26") + " - " + award[organization.index(o)] }
     y_label.unshift(" ")
-    width = organization.sort {|a,b| a.length <=> b.length}.max.length * 8 + year.size * 14 
+    width = y_label.sort {|a,b| a.length <=> b.length}.max.length * 8 + year.size * 14 
     height = (organization.size + 1) * 12 + 14
     url = Gchart.scatter(:data => [x, y], :size => "#{width}x#{height}", :axis_with_labels => "x,r", :axis_labels => [x_label, y_label], :custom => "chm=o,666666aa,1,1,10", :encoding => 'extended')
     image_tag(url, :alt => "Organization by Year")
