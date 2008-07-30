@@ -1,18 +1,6 @@
 #hd {
 	margin-top: 1em;
-	padding: 0.25em 0.5em;
-	color: #fff;
-	background-color: #333;
-	font-size:123.1%;
 }
-	#hd a, #hd a:visited {
-		color: #fff;
-		text-decoration: none;
-	}
-	#hd a:hover {
-		color:#ddd;
-	}
-
 #bd a, #bd a:visited {
 	color: #000;
 }
@@ -24,7 +12,7 @@
 	margin-bottom: 1em;
 	padding: 0.25em 0.5em;
 	color: #fff;
-	background-color: #333;
+  background:#2647a0 url(http://yui.yahooapis.com/2.5.2/build/assets/skins/sam/sprite.png) repeat-x left -1410px;
 	text-align: right;
 }
 
@@ -35,71 +23,26 @@ th {
 
 #search {
 	float: right;
-	display: block;
 	margin: 0;
-	padding: 0;
 }
 	#search input[type="text"] {
-		border: 3px solid #999;
-		color: #666;
-		font-size:85%;
+		border: 0.25em solid #2647a0;
+		color: #000;
+    margin: 0;
+    padding: 1px 0.25em;
 	}
 	#search input[type="submit"] {
-		background-color: #999;
-		color: #fff;
-		padding: 0 0.25em;
-		font-size:85%;
-	}
+    border: 1px solid #243356;
+    background:#2647a0 url(http://yui.yahooapis.com/2.5.2/build/assets/skins/sam/sprite.png) repeat-x left -1405px;
+    margin: 0;
+    padding: 3px 0.5em;
+    color: #fff;
+    }
 
 .currency {
 	text-align: right;
 	white-space: nowrap;
 }
-
-.pagination {
-  background: white;
-  /* self-clearing method: */ }
-  .pagination a, .pagination span {
-    padding: .2em .5em;
-    display: block;
-    float: left;
-    margin-right: 1px; }
-  .pagination span.disabled {
-    color: #999;
-    border: 1px solid #DDD; }
-  .pagination span.current {
-    font-weight: bold;
-    background: #333;
-    color: white;
-    border: 1px solid #333; }
-  .pagination a {
-    text-decoration: none;
-    color: #666;
-    border: 1px solid #ccc; }
-    .pagination a:hover, .pagination a:focus {
-      color: #003;
-      border-color: #003; }
-  .pagination .page_info {
-    background: #333;
-    color: white;
-    padding: .4em .6em;
-    width: 22em;
-    margin-bottom: .3em;
-    text-align: center; }
-    .pagination .page_info b {
-      color: #003;
-      background: #6aa6ed;
-      padding: .1em .25em; }
-  .pagination:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden; }
-  * html .pagination {
-    height: 1%; }
-  *:first-child+html .pagination {
-    overflow: hidden; }
 
 table.grants {
   width: 100%;
@@ -139,3 +82,53 @@ table.grants {
 .U {
 	background-color: #B3FFC6;
 }
+
+/* pagination */
+
+.pagination {
+  background: white;
+  /* self-clearing method: */ }
+  .pagination a, .pagination span {
+    padding: .2em .5em;
+    display: block;
+    float: left;
+    margin-right: 1px; }
+  .pagination span.disabled {
+    color: #999;
+    border: 1px solid #DDD; }
+  .pagination span.current {
+    font-weight: bold;
+    background:#2647a0 url(http://yui.yahooapis.com/2.5.2/build/assets/skins/sam/sprite.png) repeat-x left -1405px;
+    color: white;
+    border: 1px solid #243356; }
+  .pagination a {
+    text-decoration: none;
+    background:#d8d8d8 url(http://yui.yahooapis.com/2.5.2/build/assets/skins/sam/sprite.png) repeat-x;
+    color: #000;
+    border: 1px solid #a3a3a3; }
+    .pagination a:hover, .pagination a:focus {
+      background:#bfdaff url(http://yui.yahooapis.com/2.5.2/build/assets/skins/sam/sprite.png) repeat-x left -1300px;
+      color: #003;
+      border-color: #003; }
+  .pagination .page_info {
+    background: #333;
+    color: white;
+    padding: .4em .6em;
+    width: 22em;
+    margin-bottom: .3em;
+    text-align: center; }
+    .pagination .page_info b {
+      color: #003;
+      background: #6aa6ed;
+      padding: .1em .25em; }
+  .pagination:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden; }
+  * html .pagination {
+    height: 1%; }
+  *:first-child+html .pagination {
+    overflow: hidden; }
+
