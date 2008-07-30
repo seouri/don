@@ -17,8 +17,9 @@
 }
 
 th {
-	color: #fff;
-	background-color: #999;
+  background:#d8d8d8 url(http://yui.yahooapis.com/2.5.2/build/assets/skins/sam/sprite.png) repeat-x;
+  color: #000;
+  border: 1px solid #333;
 }
 
 #search {
