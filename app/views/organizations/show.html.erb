@@ -53,14 +53,13 @@
     <th>Grants</th>
     <th>Awarded Years</th>
   </tr>
-
-<% for investigator in @organization.investigators.top_awards %>
+<% for investigator in @organization.investigators.top_awards -%>
   <tr>
     <td><%= link_to investigator.name, investigator %></td>
     <td class="currency"><%= number_to_human_currency investigator.award_total %></td>
     <td class="currency"><%= number_with_delimiter investigator.grants_count %></td>
     <td><%= smart_year investigator.years %></td>
   </tr>
-<% end %>
+<% end -%>
 </table>
 <%= link_to "[All investigators]", organization_investigators_path(@organization) %>
