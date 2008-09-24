@@ -27,6 +27,7 @@ Rails::Initializer.run do |config|
   # config.gem "aws-s3", :lib => "aws/s3"
   # config.gem "googlecharts"
   config.gem 'mislav-will_paginate', :version => '~> 2.3.4', :lib => 'will_paginate', :source => 'http://gems.github.com'
+  config.gem 'mattetti-googlecharts', :version => '~> 1.3.5', :lib => 'gchart', :source => 'http://gems.github.com'
 
   # Only load the plugins named here, in the order given. By default, all plugins 
   # in vendor/plugins are loaded in alphabetical order.
