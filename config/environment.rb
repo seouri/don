@@ -50,7 +50,7 @@ Rails::Initializer.run do |config|
   # Make sure the secret is at least 30 characters and all random, 
   # no regular words or you'll be exposed to dictionary attacks.
   config.action_controller.session = {
-    :session_key => '_nihaward_session',
+    :session_key => '_don_session',
     :secret      => 'a85d7cb5ec9f55ca49e259a01e192ee61207340eb76c2483eab378036ab44e9392d1cb6f5725b199c7326435251b99b3f6dc8364c06abf9fb7c524967419d1cc'
   }
 
