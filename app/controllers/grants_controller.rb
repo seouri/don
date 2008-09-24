@@ -29,7 +29,7 @@ class GrantsController < ApplicationController
   
 protected
   def find_organization
-    @total_entries = Grant.last.id
+    @total_entries = Grant.last.id unless Grant.last.nil?
     if params[:organization_id]
       @organization = Organization.find(params[:organization_id])
       @total_entries = @organization.grants_count
